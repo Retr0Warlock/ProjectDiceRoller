@@ -1,0 +1,28 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Dice Roller</string>
+    <string name="dev_name">Ben Fagan and Josh Shires</string>
+
+    <!-- Buttons -->
+    <string name="d4">D4</string>
+    <string name="d6">D6</string>
+    <string name="d8">D8</string>
+    <string name="d10">D10</string>
+    <string name="d12">D12</string>
+    <string name="d20">D20</string>
+    <string name="d100">D100</string>
+    <string name="custom">Custom</string>
+    <string name="number">##</string>
+
+    <!-- Custom Dice -->
+    <string-array name="dice_array">
+        <item>D4</item>
+        <item>D6</item>
+        <item>D8</item>
+        <item>D10</item>
+        <item>D12</item>
+        <item>D20</item>
+        <item>D100</item>
+    </string-array>
+
+</resources>

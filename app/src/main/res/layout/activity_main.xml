@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Setup -->
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Result of Dice Roll (Top Text) -->
+    <TextView
+        android:id="@+id/sum_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="#00FF0000"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+
+    <!-- Dice to be Rolled (Bottom Text) -->
+    <TextView
+        android:id="@+id/sides_and_rolls_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center|top"
+        android:text="@string/dev_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <!-- Button Characteristics -->
+
+    <!-- Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+
+        <!-- D100 -->
+
+
+        <!-- Custom Die -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/dModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/dAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:insetLeft="10dp"
+                    android:insetTop="5dp"
+                    android:insetRight="5dp"
+                    android:insetBottom="5dp"
+                    android:text="Add" />
+
+                <Button
+                    android:id="@+id/dSubtract"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:insetLeft="5dp"
+                    android:insetTop="5dp"
+                    android:insetRight="5dp"
+                    android:insetBottom="5dp"
+                    android:text="Sub" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Custom Spinner and Number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- Which Die to Roll -->
+                <Spinner
+                    android:id="@+id/dice_spinner"
+                    style="@style/Widget.AppCompat.Spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="2"
+                    android:foregroundGravity="center"
+                    android:gravity="center" />
+
+                <!-- How Many Times to Roll It -->
+                <EditText
+                    android:id="@+id/num_rolls"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:autofillHints="#"
+                    android:backgroundTint="@color/clear"
+                    android:ems="10"
+                    android:hint="@string/number"
+                    android:inputType="number"
+                    android:textCursorDrawable="@color/clear" />
+
+            </LinearLayout>
+
+            <!-- Custom Button -->
+            <Button
+                android:id="@+id/dCustom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-light"
+                android:insetLeft="5dp"
+                android:insetTop="5dp"
+                android:insetRight="10dp"
+                android:insetBottom="5dp"
+                android:text="@string/custom"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+
+        <!-- D4 -->
+        <Button
+            android:id="@+id/d4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="10dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            android:text="@string/d4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <!-- D6 -->
+        <Button
+            android:id="@+id/d6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="5dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            android:text="@string/d6"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:id="@+id/d8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="5dp"
+            android:insetTop="5dp"
+            android:insetRight="10dp"
+            android:insetBottom="5dp"
+            android:text="@string/d8"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    </LinearLayout>
+
+    <!-- Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal"
+        >
+
+        <!-- D8 -->
+
+        <!-- D10 -->
+
+        <Button
+            android:id="@+id/d10"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="10dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            android:text="@string/d10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:id="@+id/d12"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="5dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            android:text="@string/d12"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:elevation="2dp"
+            app:iconPadding="8dp" />
+
+        <Button
+            android:id="@+id/d20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="5dp"
+            android:insetTop="5dp"
+            android:insetRight="10dp"
+            android:insetBottom="5dp"
+            android:text="@string/d20"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    </LinearLayout>
+
+    <!-- Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+
+        <!-- D12 -->
+
+        <!-- D20 -->
+
+        <Button
+            android:id="@+id/d100"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:insetLeft="10dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="10dp"
+            android:text="@string/d100"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:id="@+id/dCritical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:insetLeft="5dp"
+            android:insetTop="5dp"
+            android:insetRight="10dp"
+            android:insetBottom="10dp"
+            android:text="Critical (x2)" />
+    </LinearLayout>
+
+    <!-- Row 4 -->
+
+</androidx.appcompat.widget.LinearLayoutCompat>
