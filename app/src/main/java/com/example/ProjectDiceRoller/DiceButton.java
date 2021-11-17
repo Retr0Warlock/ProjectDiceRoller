@@ -7,6 +7,8 @@ public class DiceButton
     int sides;
     int rolls;
 
+    int total;
+
     // Non-Default Constructor
     public DiceButton(int userSides, int userRolls)
     {
@@ -17,7 +19,7 @@ public class DiceButton
     // the main function of the class - rolling and totalling a number of dice rolls
     public int rollDice()
     {
-        int total = 0;
+        total = 0;
 
         // allows rolls to be decremented without changing original number
         int numRolls = rolls;
@@ -34,4 +36,6 @@ public class DiceButton
 
         return total;
     }
+
+
 }

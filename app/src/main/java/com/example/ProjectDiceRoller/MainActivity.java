@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     int customSides = 0;
     int customRoll = 0;
 
+    int total;
+    int newMod;
+
     // here's something different!
     private Vibrator hapticFeedback;
 
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         // creates a DiceButton object with the correct parameters and rolls it
         DiceButton dice = new DiceButton(sides, rolls);
-        int total = dice.rollDice();
+        total = dice.rollDice();
 
         // sends the total to the sum result
         final TextView sumText = findViewById(R.id.sum_text);
@@ -41,6 +44,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // small bit of feedback for "rolling" a die
         hapticFeedback.vibrate(45);
     }
+
+    // Doubles the current total for critical hits
+    public void criticalRoll() {
+        total = total*2;
+        final TextView sumText = findViewById(R.id.sum_text);
+        String sum = Integer.toString(total);
+        sumText.setText(sum);
+    }
+
+    // Adds given modifier to the current total
+    public void addModifier(int mod) {
+        total += mod;
+        final TextView sumText = findViewById(R.id.sum_text);
+        String sum = Integer.toString(total);
+        sumText.setText(sum);
+    }
+
+    // Subtracts given modifier from current total
+    public void subModifier(int mod) {
+        if(total < mod){
+            total = 0;
+        } else {
+            total -= mod;
+        }
+        final TextView sumText = findViewById(R.id.sum_text);
+        String sum = Integer.toString(total);
+        sumText.setText(sum);
+    }
+
 
     // sets up the spinner for selecting a custom die
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
@@ -100,8 +132,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         buttonCustom.setOnClickListener(view -> rollDice(customSides, customRoll));
 
         //Button to add modifiers to the rolled number
+        Button buttonDAdd = findViewById(R.id.dAdd);
+        EditText modifier1 = findViewById(R.id.dModifier);
+        modifier1.setOnEditorActionListener((v, actionId, event) -> {
+            newMod = Integer.parseInt(String.valueOf(modifier1.getText()));
+            return false;
+        });
+        buttonDAdd.setOnClickListener(view -> addModifier(newMod));
+
         //Button to Subtract modifiers from the number rolled
+        Button buttonDSub = findViewById(R.id.dSubtract);
+        EditText modifier2 = findViewById(R.id.dModifier);
+        modifier2.setOnEditorActionListener((v, actionId, event) -> {
+            newMod = Integer.parseInt(String.valueOf(modifier2.getText()));
+            return false;
+        });
+        buttonDSub.setOnClickListener(view -> subModifier(newMod));
+
         //Button to double the number rolled for Critical hits.
+        Button buttonDCritical = findViewById(R.id.dCritical);
+        buttonDCritical.setOnClickListener(view -> criticalRoll());
 
         /* Change to allow user to choose how many sides the die has.*/
 
