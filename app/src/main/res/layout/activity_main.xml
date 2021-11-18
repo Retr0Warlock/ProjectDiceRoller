@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Setup -->
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/parchement"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <!-- Result of Dice Roll (Top Text) -->
@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="Modifier"
                 android:inputType="number" />
 
             <LinearLayout
@@ -108,6 +109,16 @@
                 android:orientation="horizontal">
 
                 <!-- Which Die to Roll -->
+
+                <EditText
+                    android:id="@+id/dSize"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Die Size"
+                    android:inputType="number" />
+
                 <Spinner
                     android:id="@+id/dice_spinner"
                     style="@style/Widget.AppCompat.Spinner"
@@ -118,7 +129,9 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="2"
                     android:foregroundGravity="center"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
 
                 <!-- How Many Times to Roll It -->
                 <EditText
@@ -131,7 +144,7 @@
                     android:autofillHints="#"
                     android:backgroundTint="@color/clear"
                     android:ems="10"
-                    android:hint="@string/number"
+                    android:hint="Amount"
                     android:inputType="number"
                     android:textCursorDrawable="@color/clear" />
 
@@ -168,13 +181,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d4"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="10dp"
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            android:text="@string/d4"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply" />
 
         <!-- D6 -->
         <Button
@@ -182,26 +196,28 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d6"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="5dp"
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            android:text="@string/d6"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply" />
 
         <Button
             android:id="@+id/d8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d8"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="5dp"
             android:insetTop="5dp"
             android:insetRight="10dp"
             android:insetBottom="5dp"
-            android:text="@string/d8"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply" />
 
     </LinearLayout>
 
@@ -210,8 +226,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <!-- D8 -->
 
@@ -222,27 +237,29 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d10"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="10dp"
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            android:text="@string/d10"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply" />
 
         <Button
             android:id="@+id/d12"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d12"
             android:ellipsize="none"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="5dp"
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            android:text="@string/d12"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply"
             app:elevation="2dp"
             app:iconPadding="8dp" />
 
@@ -251,13 +268,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d20"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="5dp"
             android:insetTop="5dp"
             android:insetRight="10dp"
             android:insetBottom="5dp"
-            android:text="@string/d20"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply" />
 
     </LinearLayout>
 
@@ -277,13 +295,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/d100"
             android:fontFamily="sans-serif-condensed-light"
             android:insetLeft="10dp"
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="10dp"
-            android:text="@string/d100"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:backgroundTintMode="multiply" />
 
         <Button
             android:id="@+id/dCritical"

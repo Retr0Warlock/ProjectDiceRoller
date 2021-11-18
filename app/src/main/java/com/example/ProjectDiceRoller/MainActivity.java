@@ -1,9 +1,8 @@
 package com.example.ProjectDiceRoller;
 
+import android.content.res.Configuration;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -153,14 +152,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Button buttonDCritical = findViewById(R.id.dCritical);
         buttonDCritical.setOnClickListener(view -> criticalRoll());
 
-        /* Change to allow user to choose how many sides the die has.*/
 
-        // allows user to choose dice to roll
+        /* Change to allow user to choose how many sides the die has.*/
+        EditText dieSize = findViewById(R.id.dSize);
+        dieSize.setOnEditorActionListener((v, actionId, event) -> {
+            customSides = Integer.parseInt(String.valueOf(dieSize.getText()));
+            return false;
+        });
+
+        // allows user to choose from available dice to roll (d4, d6, d8, d10, d12, d20, d100)
+        /*
         Spinner diceSpinner = findViewById(R.id.dice_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dice_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         diceSpinner.setAdapter(adapter);
         diceSpinner.setOnItemSelectedListener(this);
+        */
 
         // allows user to choose rolls for a custom roll
         EditText numRolls = findViewById(R.id.num_rolls);
@@ -170,4 +177,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             return false;
         });
     }
+
 }
